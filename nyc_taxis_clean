@@ -1,0 +1,350 @@
+SELECT "green" AS color
+  ,*
+FROM (
+  SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+  FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2022`
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2021-12-30" AND "2023-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2021-12-31" AND "2023-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2021` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2020-12-30" AND "2022-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2020-12-31" AND "2022-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2020` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2019-12-30" AND "2021-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2019-12-31" AND "2021-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2019` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2018-12-30" AND "2020-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2018-12-31" AND "2020-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2018` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2017-12-30" AND "2019-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2017-12-31" AND "2019-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2017` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2016-12-30" AND "2018-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2016-12-31" AND "2018-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2016` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2015-12-30" AND "2017-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2015-12-31" AND "2017-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2015` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2014-12-30" AND "2016-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2014-12-31" AND "2016-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2013-12-30" AND "2015-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2013-12-31" AND "2015-01-02"
+)
+
+UNION ALL
+
+SELECT "yellow" AS color
+  ,*
+FROM (
+  SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+  FROM `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2022`
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2021-12-30" AND "2023-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2021-12-31" AND "2023-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2021` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2020-12-30" AND "2022-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2020-12-31" AND "2022-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2020` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2019-12-30" AND "2021-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2019-12-31" AND "2021-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2019` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2018-12-30" AND "2020-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2018-12-31" AND "2020-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2018` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2017-12-30" AND "2019-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2017-12-31" AND "2019-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2017` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2016-12-30" AND "2018-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2016-12-31" AND "2018-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2016` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2015-12-30" AND "2017-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2015-12-31" AND "2017-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2015` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2014-12-30" AND "2016-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2014-12-31" AND "2016-01-02"
+
+UNION ALL
+
+SELECT EXTRACT(DATE FROM pickup_datetime) AS pickup
+  ,DATE_DIFF(dropoff_datetime ,pickup_datetime, MINUTE) AS ride_time_mins
+  ,trip_distance
+  ,fare_amount
+  ,total_amount
+  ,zp.borough AS pickup_borough
+  ,zd.borough AS dropoff_borough
+FROM `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2014` 
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp ON pickup_location_id = zp.zone_id
+  JOIN `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd ON dropoff_location_id = zd.zone_id
+WHERE trip_distance > 0 
+  AND DATE_DIFF(dropoff_datetime, pickup_datetime, MINUTE) > 0 
+  AND fare_amount > 0 
+  AND passenger_count IS NOT NULL
+  AND EXTRACT(DATE FROM pickup_datetime) BETWEEN "2013-12-30" AND "2015-01-01"
+  AND EXTRACT(DATE FROM dropoff_datetime) BETWEEN "2013-12-31" AND "2015-01-02"
+)
+  ORDER BY pickup, pickup_borough
+
+  
