@@ -1,0 +1,655 @@
+SELECT
+  "green" AS color,
+  *
+FROM (
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    distance_between_service,
+    time_between_service,
+    trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2022`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    distance_between_service,
+    time_between_service,
+    trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2021`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    distance_between_service,
+    time_between_service,
+    trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2020`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    distance_between_service,
+    time_between_service,
+    trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2019`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    distance_between_service,
+    time_between_service,
+    trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2018`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    distance_between_service,
+    time_between_service,
+    trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2017`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    distance_between_service,
+    time_between_service,
+    trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2016`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    distance_between_service,
+    time_between_service,
+    trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2015`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    distance_between_service,
+    time_between_service,
+    trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_green_trips_2014`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id )
+UNION ALL
+SELECT
+  "yellow" AS color,
+  *
+FROM (
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    NULL AS ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    NULL AS distance_between_service,
+    NULL AS time_between_service,
+    STRING(NULL) AS trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2022`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    NULL AS ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    NULL AS distance_between_service,
+    NULL AS time_between_service,
+    STRING(NULL) AS trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2021`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    NULL AS ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    NULL AS distance_between_service,
+    NULL AS time_between_service,
+    STRING(NULL) AS trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2020`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    NULL AS ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    NULL AS distance_between_service,
+    NULL AS time_between_service,
+    STRING(NULL) AS trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2019`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    NULL AS ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    NULL AS distance_between_service,
+    NULL AS time_between_service,
+    STRING(NULL) AS trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2018`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    NULL AS ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    NULL AS distance_between_service,
+    NULL AS time_between_service,
+    STRING(NULL) AS trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2017`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    NULL AS ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    NULL AS distance_between_service,
+    NULL AS time_between_service,
+    STRING(NULL) AS trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2016`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    NULL AS ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    NULL AS distance_between_service,
+    NULL AS time_between_service,
+    STRING(NULL) AS trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2015`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id
+  UNION ALL
+  SELECT
+    vendor_id,
+    pickup_datetime,
+    dropoff_datetime,
+    store_and_fwd_flag,
+    rate_code,
+    passenger_count,
+    trip_distance,
+    fare_amount,
+    extra,
+    mta_tax,
+    tip_amount,
+    tolls_amount,
+    NULL AS ehail_fee,
+    airport_fee,
+    total_amount,
+    payment_type,
+    NULL AS distance_between_service,
+    NULL AS time_between_service,
+    STRING(NULL) AS trip_type,
+    imp_surcharge,
+    pickup_location_id,
+    zp.borough AS pickup_borough,
+    dropoff_location_id,
+    zd.borough AS dropoff_borough
+  FROM
+    `bigquery-public-data.new_york_taxi_trips.tlc_yellow_trips_2014`
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zp
+  ON
+    pickup_location_id = zp.zone_id
+  JOIN
+    `bigquery-public-data.new_york_taxi_trips.taxi_zone_geom` AS zd
+  ON
+    dropoff_location_id = zd.zone_id )
